@@ -53,11 +53,11 @@
 							<tr>							
 								<th>Título</th>
 								<th>Autor</th>
-								<th>Descri&ccedil&atildeo</th>
-								<th>Pre&ccedilo</th>
+								<th>Descri&ccedil;&atilde;o</th>
+								<th>Pre&ccedil;o</th>
 								<th>ISBN</th>
 								<th>Data e Hora</th>
-								<th>A&ccedil&atildeo</th>
+								<th>A&ccedil;&atilde;o</th>
 							</tr>
 						</thead>
 						<tbody>
