@@ -11,7 +11,7 @@
     <meta http-equiv="Cache-Control" content="no-cache"> 
     <meta http-equiv="Expires" content="Sat, 01 Dec 2001 00:00:00 GMT">
     
-    <title>Home</title>
+    <title>Inicio</title>
     
     <link href="resources/css/bootstrap.min.css" rel="stylesheet">
      <link href="resources/css/style.css" rel="stylesheet">
@@ -39,7 +39,7 @@
 		<c:when test="${mode == 'MODE_HOME'}">
 			<div class="container" id="homeDiv">
 				<div class="jumbotron text-center">
-					<h1>Seja-vendo livros</h1>
+					<h1>Seja-vinddo livros</h1>
 				</div>
 			</div>
 		</c:when>
@@ -51,13 +51,13 @@
 					<table class="table table-striped table-bordered text-left">
 						<thead>
 							<tr>							
-								<th>Titulo</th>
+								<th>Título</th>
 								<th>Autor</th>
-								<th>Descricao</th>
-								<th>Preço</th>
+								<th>Descri&ccedil&atildeo</th>
+								<th>Pre&ccedilo</th>
 								<th>ISBN</th>
 								<th>Data e Hora</th>
-								<th>Ação</th>
+								<th>A&ccedil&atildeo</th>
 							</tr>
 						</thead>
 						<tbody>
