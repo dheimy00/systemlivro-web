@@ -1,10 +1,13 @@
 package br.com.systemlivro.dao;
 
-import org.springframework.data.repository.CrudRepository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import br.com.systemlivro.modelo.Livro;
 
-public interface LivroRepository extends CrudRepository<Livro,Integer>{
+@Repository
+public interface LivroRepository extends JpaRepository<Livro,Long>{
 	
 	
 
