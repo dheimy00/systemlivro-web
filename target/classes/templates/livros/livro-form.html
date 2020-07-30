@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layouts/layout}" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div class="container">
+		<div layout:fragment="content">
+			<form action="#" th:action="@{/livros/salvar}"
+				th:object="${livro}" method="POST">
+				<div >
+					<div>
+						<h3>Livro</h3>
+					</div>
+					
+					<input type="hidden" th:field="*{id}" />
+					
+					<div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="titulo">T&iacute;tulo</label> <input type="text"
+									class="form-control" id="titulo" th:field="*{titulo}" placeholder="T&iacute;tulo">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="descricao">Descri&ccedil;&atilde;o</label> <input type="text"
+									class="form-control" id="descricao" th:field="*{descricao}" 
+									placeholder="Descri&ccedil;&atilde;o">
+							</div>
+						</div>
+								<div class="col-md-4">
+							<div class="form-group">
+								<label for="preco">Pre&ccedil;o</label> <input type="text" 
+									class="form-control" id="preco" th:field="*{preco}" 
+									placeholder="Pre&ccedil;o">
+							</div>
+						</div>
+						</div>
+						<div class="row">
+				
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="ano">Ano</label> <input type="text"
+									pattern="[0-9]+$" class="form-control" id="ano" th:field="*{ano}" 
+									placeholder="Ano">
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<label for="isbn">ISBN</label> <input type="text"
+									pattern="[0-9]+$" class="form-control" id="isbn" th:field="*{isbn}" 
+									placeholder="ISBN">
+							</div>
+						</div>
+							<div class="col-md-4"></div>
+					</div>
+
+					<hr>
+					<div>
+						<button type="submit" class="btn btn-primary">Salvar</button>
+						<button type="reset" class="btn  btn-outline-secondary">Limpar</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

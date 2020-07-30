@@ -1,0 +1,37 @@
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Sistema Livro</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+  
+            <li class="nav-item dropdown dmenu">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Cadastro
+            </a>
+            <div class="dropdown-menu sm-menu">
+              <a class="dropdown-item" th:href="@{/usuarios/cadastrar}">Usu&aacute;rio</a>
+              <a class="dropdown-item" th:href="@{/livros/cadastrar}">Livro</a>
+         
+            </div>
+            </li>
+                  <li class="nav-item dropdown dmenu">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+             Lista
+            </a>
+            <div class="dropdown-menu sm-menu">
+              <a class="dropdown-item" th:href="@{/usuarios/lista}">Lista de usu&aacute;rios</a>
+              <a class="dropdown-item" th:href="@{/livros/lista}">Lista de livros</a>
+       
+            </div>
+            </li>
+            </ul>
+            </div>
+    </nav>
+</div>

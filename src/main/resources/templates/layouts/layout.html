@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Sistema do Livros</title>
+        <meta http-equiv="Content-Type" content="text/html;" charset="utf-8">
+        <link th:href="@{/webjars/bootstrap/4.5.0/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+         <link th:href="@{/css/style.css}" rel="stylesheet" media="screen" />
+    </head>
+    <body>
+        <div th:replace="fragments/header :: header"></div>
+
+        <div class="container">
+   
+                <div class="col" layout:fragment="content"></div>
+        </div>
+
+        <footer th:insert="fragments/footer :: footer" class="footer"></footer>
+    </body>
+    <script th:src="@{/webjars/jquery/3.5.1/jquery.min.js}" ></script>
+    <script th:src="@{/webjars/popper.js/2.0.2/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.5.0/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+</html>
