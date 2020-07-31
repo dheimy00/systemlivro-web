@@ -6,12 +6,11 @@
 			<form action="#" th:action="@{/livros/salvar}"
 				th:object="${livro}" method="POST">
 				<div >
+				<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
 					<div>
 						<h3>Livro</h3>
 					</div>
-					
 					<input type="hidden" th:field="*{id}" />
-					
 					<div class="row">
 						<div class="col-md-4">
 							<div class="form-group">

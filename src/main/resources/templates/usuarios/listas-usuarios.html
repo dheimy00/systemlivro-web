@@ -1,43 +1,67 @@
 <!DOCTYPE html>
-<html layout:decorate="~{layouts/layout}" xmlns:th="http://www.thymeleaf.org">
+<html layout:decorate="~{layouts/layout}"
+	xmlns:th="http://www.thymeleaf.org">
 <body>
 	<div class="container">
 		<div layout:fragment="content">
-		<div class="mt-10 mb-10">
+			<div class="mt-10 mb-10">
 
 				<div th:if="${!usuarios.empty}">
-				<table class="table table-hover">
-				<thead>
-					<tr>
-						<th >Nome</th>
-						<th >Endere&ccedil;o</th>
-						<th >Contato</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:each="usuario : ${usuarios}">
-						<td th:text="${usuario.nome}"></td>
-						<td th:text="${usuario.endereco.rua}"></td>
-						<td th:text="${usuario.endereco.bairro}"></td>
-						<td th:text="${usuario.endereco.numero}"></td>
-						<td th:text="${usuario.contato.celular}"></td>
-						<td>
-								<div class="btn-group pull-right">
-						
-							   		<a class="btn btn-sm btn-primary" th:href="@{/usuarios/editar(id=${usuario.id})}" >Editar</a>
-							   		<a class="delete btn btn-sm btn-danger" th:href="@{/usuarios/excluir(id=${usuario.id})}"
-							   		 onclick="if (!(confirm('Tem certeza de que deseja excluir?'))) return false"
-							   		 >Excluir</a>
-							   </div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>Endere&ccedil;o</th>
+								<th>Contato</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="usuario : ${usuarios}">
+								<td th:text="${usuario.nome}"></td>
+								<td th:text="${usuario.endereco.rua}"></td>
+								<td th:text="${usuario.endereco.bairro}"></td>
+								<td th:text="${usuario.endereco.numero}"></td>
+								<td th:text="${usuario.contato.celular}"></td>
+								<td>
+									<div class="btn-group pull-right">
+
+										<a class="btn btn-sm btn-primary"
+											th:href="@{/usuarios/editar(id=${usuario.id})}">Editar</a> 
+											<a
+											class="delete btn btn-sm btn-danger" data-toggle="modal"
+											data-target="#exampleModal">Excluir</a>
+									</div>
+								</td>
+								<div class="modal fade" id="exampleModal" tabindex="-1"
+									role="dialog" aria-labelledby="exampleModalLabel"
+									aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">Confirma&ccedil;&atilde;o</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">Deseja realmente excluir?</div>
+											<div class="modal-footer">
+												<a th:href="@{/usuarios/excluir(id=${usuario.id})}"> <span
+													class="delete btn btn-danger">Sim</span></a>
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">N&atilde;o</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div th:if="${usuarios.empty}">
+					<h1>N&atilde;o existe registro</h1>
+				</div>
 			</div>
-			<div th:if="${usuarios.empty}">
-			<h1>N&atilde;o existe registro</h1>
-			</div>
-		</div>
 		</div>
 	</div>
 </body>

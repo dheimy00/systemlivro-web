@@ -50,14 +50,14 @@ public class LivroController {
 	}
 
 	@PostMapping("/salvar")
-	public String salvar(@Valid @ModelAttribute("livro") Livro livro,BindingResult errors,Model model) {
+	public String salvar(@Valid @ModelAttribute("livro") Livro livro,BindingResult errors) {
 		
 		if(errors.hasErrors()) {
 			
 			return "livros/livro-form";
 			
 		}
-
+ 
 		livroService.salvar(livro);
 
 		return "redirect:/livros/lista";

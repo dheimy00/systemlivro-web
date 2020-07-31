@@ -4,4 +4,6 @@ $('.navbar-dark .dmenu').hover(function () {
     }, function () {
         $(this).find('.sm-menu').first().stop(true, true).slideUp(105)
     })
+
+
 });
