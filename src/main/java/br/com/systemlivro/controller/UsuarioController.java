@@ -3,9 +3,12 @@ package br.com.systemlivro.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,9 +51,17 @@ public class UsuarioController {
 	}
 
 	@PostMapping("/salvar")
-	public String salvar(@ModelAttribute("usuario") Usuario usuario) {
+	public String salvar(@Valid @ModelAttribute("usuario")  Usuario usuario,BindingResult errors,Model modelo) {
+		
+		if(errors.hasErrors()) {
+			
+			return "usuarios/usuario-form";
+			
+		}else {
+			
+			usuarioService.salvar(usuario);
+		}
 
-		usuarioService.salvar(usuario);
 
 		return "redirect:/usuarios/lista";
 

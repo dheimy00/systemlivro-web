@@ -17,6 +17,9 @@
 							<div class="form-group">
 								<label for="titulo">T&iacute;tulo</label> <input type="text"
 									class="form-control" id="titulo" th:field="*{titulo}" placeholder="T&iacute;tulo">
+										<p class="alert alert-danger"
+								th:if="${#fields.hasErrors('titulo')}" 
+								th:errors="*{titulo}"/>
 							</div>
 						</div>
 						<div class="col-md-4">
@@ -24,6 +27,9 @@
 								<label for="descricao">Descri&ccedil;&atilde;o</label> <input type="text"
 									class="form-control" id="descricao" th:field="*{descricao}" 
 									placeholder="Descri&ccedil;&atilde;o">
+									<p class="alert alert-danger"
+								th:if="${#fields.hasErrors('descricao')}" 
+								th:errors="*{descricao}"/>
 							</div>
 						</div>
 								<div class="col-md-4">
@@ -31,6 +37,9 @@
 								<label for="preco">Pre&ccedil;o</label> <input type="text" 
 									class="form-control" id="preco" th:field="*{preco}" 
 									placeholder="Pre&ccedil;o">
+									<p class="alert alert-danger"
+								th:if="${#fields.hasErrors('preco')}" 
+								th:errors="*{preco}"/>
 							</div>
 						</div>
 						</div>
@@ -41,6 +50,9 @@
 								<label for="ano">Ano</label> <input type="text"
 									pattern="[0-9]+$" class="form-control" id="ano" th:field="*{ano}" 
 									placeholder="Ano">
+									<p class="alert alert-danger"
+								th:if="${#fields.hasErrors('ano')}" 
+								th:errors="*{ano}"/>
 							</div>
 						</div>
 						<div class="col-md-4">
@@ -48,6 +60,9 @@
 								<label for="isbn">ISBN</label> <input type="text"
 									pattern="[0-9]+$" class="form-control" id="isbn" th:field="*{isbn}" 
 									placeholder="ISBN">
+									<p class="alert alert-danger"
+								th:if="${#fields.hasErrors('isbn')}" 
+								th:errors="*{isbn}"/>
 							</div>
 						</div>
 							<div class="col-md-4"></div>

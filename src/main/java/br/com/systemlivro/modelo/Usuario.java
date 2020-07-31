@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -36,14 +38,17 @@ public class Usuario implements Serializable {
 	@Column(name = "ID")
 	private Long id;
 	
+	@NotBlank(message = "O nome é obrigatório")
 	@Column(name = "NOME")
 	private String nome;
 	
-	@OneToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
+	@Valid
+	@OneToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
 	
-	@OneToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
+	@Valid
+	@OneToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name = "contato_id")
 	private Contato contato;
 	

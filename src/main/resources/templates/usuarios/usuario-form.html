@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html layout:decorate="~{layouts/layout}" xmlns:th="http://www.thymeleaf.org">
+<html layout:decorate="~{layouts/layout}"
+	xmlns:th="http://www.thymeleaf.org">
 <body>
 	<div class="container">
 		<div layout:fragment="content">
 			<form action="#" th:action="@{/usuarios/salvar}"
 				th:object="${usuario}" method="POST">
-				<div >
+				<div>
 					<div>
 						<h3>Usu&aacute;rio</h3>
 					</div>
-					
+
 					<input type="hidden" th:field="*{id}" />
-					
+
 					<div class="row">
 						<div class="col-md-4">
-							<div class="form-group">
-								<label for="nome">Nome</label> <input type="text"
-									class="form-control" id="nome" th:field="*{nome}" placeholder="Digite seu nome">
-							</div>
+
+							<label for="nome">Nome</label> <input type="text"
+								class="form-control" id="nome" th:field="*{nome}"
+								placeholder="Digite seu nome"> 
+								<p class="alert alert-danger"
+								th:if="${#fields.hasErrors('nome')}" 
+								th:errors="*{nome}"/>
+
 							<div class="col-md-4"></div>
 							<div class="col-md-4"></div>
 						</div>
@@ -30,21 +35,32 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="rua">Rua</label> <input type="text"
-									class="form-control" id="rua" th:field="*{endereco.rua}"  placeholder="Digite seu rua">
+									class="form-control" id="rua" th:field="*{endereco.rua}"
+									placeholder="Digite seu rua">
+								<p class="alert alert-danger"
+									th:if="${#fields.hasErrors('endereco.rua')}"
+									th:errors="*{endereco.rua}" />
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="bairro">Bairro</label> <input type="text"
-									class="form-control" id="bairro" th:field="*{endereco.bairro}" 
+									class="form-control" id="bairro" th:field="*{endereco.bairro}"
 									placeholder="Digite seu bairro">
+								<p class="alert alert-danger"
+									th:if="${#fields.hasErrors('endereco.bairro')}"
+									th:errors="*{endereco.bairro}" />
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="complemento">Complemento</label> <input type="text"
-									class="form-control" id="complemento" th:field="*{endereco.complemento}" 
+									class="form-control" id="complemento"
+									th:field="*{endereco.complemento}"
 									placeholder="Digite seu complemento">
+								<p class="alert alert-danger"
+									th:if="${#fields.hasErrors('endereco.complemento')}"
+									th:errors="*{endereco.complemento}" />
 							</div>
 						</div>
 					</div>
@@ -52,15 +68,21 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="numero">N&uacute;mero</label> <input type="text"
-									pattern="[0-9]+$" class="form-control" id="numero" th:field="*{endereco.numero}" 
-									placeholder="Digite seu numero">
+									pattern="[0-9]+$" class="form-control" id="numero"
+									th:field="*{endereco.numero}" placeholder="Digite seu numero">
+								<p class="alert alert-danger"
+									th:if="${#fields.hasErrors('endereco.numero')}"
+									th:errors="*{endereco.numero}" />
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="cep">CEP</label> <input type="text"
-									pattern="[0-9]+$" class="form-control" id="cep" th:field="*{endereco.cep}" 
-									placeholder="Digite seu cep">
+									pattern="[0-9]+$" class="form-control" id="cep"
+									th:field="*{endereco.cep}" placeholder="Digite seu cep">
+								<p class="alert alert-danger"
+									th:if="${#fields.hasErrors('endereco.cep')}"
+									th:errors="*{endereco.cep}" />
 							</div>
 						</div>
 						<div class="col-md-4"></div>
@@ -70,30 +92,45 @@
 					<div>
 						<h3>Contato</h3>
 					</div>
+
 					<div class="row">
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="email">E-mail</label> <input type="email"
-									class="form-control" id="email" th:field="*{contato.email}" 
+									class="form-control" id="email" th:field="*{contato.email}"
 									pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 									placeholder="Digite seu email">
+								<p class="alert alert-danger"
+									th:if="${#fields.hasErrors('contato.email')}"
+									th:errors="*{contato.email}" />
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="celular">Celular</label> <input type="text"
-									class="form-control" id="celular" pattern="[0-9]+$" th:field="*{contato.celular}" 
-									placeholder="Digite seu celular">
+									class="form-control" id="celular" pattern="[0-9]+$"
+									th:field="*{contato.celular}" placeholder="Digite seu celular">
+								<p class="alert alert-danger"
+									th:if="${#fields.hasErrors('contato.celular')}"
+									th:errors="*{contato.celular}" />
+
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<label for="telefone">Telefone</label> <input type="text"
-									pattern="[0-9]+$" class="form-control" id="telefone" th:field="*{contato.telefone}" 
+									pattern="[0-9]+$" class="form-control" id="telefone"
+									th:field="*{contato.telefone}"
 									placeholder="Digite seu telefone">
+								<p class="alert alert-danger"
+									th:if="${#fields.hasErrors('contato.telefone')}"
+									th:errors="*{contato.telefone}" />
 							</div>
 						</div>
 					</div>
+
+
+
 					<hr>
 					<div>
 						<button type="submit" class="btn btn-primary">Salvar</button>

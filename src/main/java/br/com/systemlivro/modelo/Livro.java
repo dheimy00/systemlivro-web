@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -35,18 +37,23 @@ public class Livro implements Serializable {
 	@Column(name = "ID")
 	private Long id;
 	
+	@NotBlank(message = "O título é obrigatório")
 	@Column(name = "TITULO")
 	private String titulo;
 	
+	@NotBlank(message = "O descrição é obrigatório")
 	@Column(name = "DESCRICAO")
 	private String descricao;
 	
+	@NotNull(message = "O preço é obrigatório")
 	@Column(name = "PRECO")
 	private BigDecimal preco;
 		
+	@NotNull(message = "ISBN é obrigatório")
 	@Column(name = "ISBN")
 	private Integer isbn;
 	
+	@NotNull(message = "O ano é obrigatório")
 	@Column(name = "ANO")
 	private Integer ano;
 	
