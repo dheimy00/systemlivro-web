@@ -11,8 +11,9 @@
 						<thead>
 							<tr>
 								<th>Nome</th>
-								<th>Endere&ccedil;o</th>
-								<th>Contato</th>
+								<th>Rua</th>
+								<th>Bairro</th>
+								<th>Celular</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -20,7 +21,6 @@
 								<td th:text="${usuario.nome}"></td>
 								<td th:text="${usuario.endereco.rua}"></td>
 								<td th:text="${usuario.endereco.bairro}"></td>
-								<td th:text="${usuario.endereco.numero}"></td>
 								<td th:text="${usuario.contato.celular}"></td>
 								<td>
 									<div class="btn-group pull-right">
