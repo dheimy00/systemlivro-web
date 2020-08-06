@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layouts/layout}"
+	xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div class="container">
+		<div layout:fragment="content">
+			<div class="mt-10 mb-10">
+
+				<div th:if="${!pedidos.empty}">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Usuario</th>
+								<th>Livros</th>
+								<th>Pre&ccedil;o</th>
+								<th>Quantidade</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="pedido : ${pedidos}">
+								<td th:text="${pedido.usuario.nome}"></td>
+								<td>
+									<table class="table_tr">
+										<tr th:each="livro :${pedido.livros}">
+											<td th:text="${livro.titulo}"></td>
+										</tr>
+									</table>
+								</td>
+								<td>
+								<table class="table_tr">
+										<tr th:each="livro :${pedido.livros}">
+											<td th:text="${livro.preco}"></td>
+										</tr>
+									</table>
+								</td>
+								<td th:text="${pedido.quantidade}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div th:if="${pedidos.empty}">
+					<h1>N&atilde;o existe registro</h1>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>

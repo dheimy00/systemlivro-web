@@ -25,11 +25,6 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 
-	@GetMapping
-	public String index() {
-		return "index";
-	}
-
 	@GetMapping("/lista")
 	public String lista(Model model) {
 

@@ -3,10 +3,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">SysBook</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <a class="navbar-brand"th:href="@{/}">SysBook</a>
         
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -28,6 +25,16 @@
             <div class="dropdown-menu sm-menu">
               <a class="dropdown-item" th:href="@{/usuarios/lista}">Lista de usu&aacute;rios</a>
               <a class="dropdown-item" th:href="@{/livros/lista}">Lista de livros</a>
+       
+            </div>
+            </li>
+                       <li class="nav-item dropdown dmenu">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+             Pedido
+            </a>
+            <div class="dropdown-menu sm-menu">
+              <a class="dropdown-item" th:href="@{/pedido/novo-pedido}">Novo pedido</a>
+              <a class="dropdown-item" th:href="@{/pedido/consultar}">Consulta pedido</a>
        
             </div>
             </li>

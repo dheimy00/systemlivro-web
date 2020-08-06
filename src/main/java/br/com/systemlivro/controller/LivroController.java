@@ -24,10 +24,7 @@ public class LivroController {
 	@Autowired
 	private LivroService livroService;
 
-	@GetMapping
-	public String index() {
-		return "index";
-	}
+
 
 	@GetMapping("/lista")
 	public String lista(Model model) {

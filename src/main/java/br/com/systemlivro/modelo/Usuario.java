@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.Valid;
@@ -19,6 +20,7 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import br.com.systemlivro.enums.Sexo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -42,6 +44,9 @@ public class Usuario implements Serializable {
 	@Column(name = "NOME")
 	private String nome;
 	
+	@Column(name = "sexo")
+	private Sexo sexo;
+	
 	@Valid
 	@OneToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name = "endereco_id")
@@ -51,6 +56,7 @@ public class Usuario implements Serializable {
 	@OneToOne(fetch = FetchType.LAZY,cascade=CascadeType.ALL)
 	@JoinColumn(name = "contato_id")
 	private Contato contato;
+	
 	
 	@Column(name = "CRIAR_DATA")
 	@CreationTimestamp
