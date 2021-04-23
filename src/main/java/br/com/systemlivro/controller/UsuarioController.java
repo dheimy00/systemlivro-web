@@ -27,33 +27,24 @@ public class UsuarioController {
 
 	@GetMapping("/lista")
 	public String lista(Model model) {
-
 		List<Usuario> usuarios = usuarioService.lista();
-
 		model.addAttribute("usuarios", usuarios);
-
 		return "/usuarios/listas-usuarios";
 	}
 
 	@GetMapping("/cadastrar")
 	public String cadastroFrom(Model model) {
-
 		Usuario usuario = new Usuario();
-
 		model.addAttribute("usuario", usuario);
-
 		return "usuarios/usuario-form";
 	}
 
 	@PostMapping("/salvar")
 	public String salvar(@Valid @ModelAttribute("usuario")  Usuario usuario,BindingResult errors,Model modelo) {
-		
+
 		if(errors.hasErrors()) {
-			
 			return "usuarios/usuario-form";
-			
 		}else {
-			
 			usuarioService.salvar(usuario);
 		}
 

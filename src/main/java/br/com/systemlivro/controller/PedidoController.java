@@ -77,5 +77,13 @@ public class PedidoController {
 		return "pedido/lista-pedido";
 	}
 	
+	@GetMapping("/excluir")
+	public String excluir(@RequestParam("id") Long id) {
+
+		pedidoService.excluir(id);
+	
+		return "redirect:/pedido/consultar";
+	}
+	
 
 }

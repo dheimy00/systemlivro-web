@@ -14,6 +14,7 @@
 								<th>Livros</th>
 								<th>Pre&ccedil;o</th>
 								<th>Quantidade</th>
+								<th>Açoes</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -27,13 +28,44 @@
 									</table>
 								</td>
 								<td>
-								<table class="table_tr">
+									<table class="table_tr">
 										<tr th:each="livro :${pedido.livros}">
 											<td th:text="${livro.preco}"></td>
 										</tr>
 									</table>
 								</td>
 								<td th:text="${pedido.quantidade}"></td>
+								<td>
+									<div class="btn-group pull-right">
+
+										<a class="btn btn-sm btn-primary"
+											th:href="@{/pedido/editar(id=${pedido.id})}">Editar</a> <a
+											class="delete btn btn-sm btn-danger" data-toggle="modal"
+											data-target="#exampleModal">Excluir</a>
+									</div>
+								</td>
+								<div class="modal fade" id="exampleModal" tabindex="-1"
+									role="dialog" aria-labelledby="exampleModalLabel"
+									aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">Confirma&ccedil;&atilde;o</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">Deseja realmente excluir?</div>
+											<div class="modal-footer">
+												<a th:href="@{/pedido/excluir(id=${pedido.id})}"> <span
+													class="delete btn btn-danger">Sim</span></a>
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">N&atilde;o</button>
+											</div>
+										</div>
+									</div>
+								</div>
 							</tr>
 						</tbody>
 					</table>
